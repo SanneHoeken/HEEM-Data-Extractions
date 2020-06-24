@@ -1,0 +1,37 @@
+,filename,genre,author,title,negative,positive,termcount
+0,quin031spoo02_01.xml,spaans,Philippe Quinault,De spookende minnaar,17.455858747993577,16.292134831460675,24920
+1,lope001joan01_01.xml,spaans,Félix Lope de Vega,Joanna koningin van Napels of Den trotzen dwinger,19.63117192147531,20.464009518143964,16810
+2,leeu004tove02_01.xml,spaans,Adriaen Bastiaensz Leeuw,De toveres Circe,12.274924083657671,10.99183097386767,23381
+3,rotr001groo02_01.xml,spaans,Jean Rotrou,Den grooten Bellizarius,15.132469541674725,12.086637014117192,20684
+4,lope001bekl02_01.xml,spaans,Félix Lope de Vega,De beklaagelyke dwang,15.599639314697926,17.94409377817854,11090
+5,lope001gedw04_01.xml,spaans,Félix Lope de Vega,Gedwongen vriendt,16.053916928552496,15.561697777441218,26411
+6,mira010verw02_01.xml,spaans,Antonio Mira de Amescua,Verwarde hof,12.390265585065007,11.556839648849872,17998
+7,corn001cid_02_01.xml,spaans,P. Corneille,De Cid,15.137307434695245,13.485152935923196,22395
+8,lope001dull01_01.xml,spaans,Félix Lope de Vega,Den dullen ammirael of Stryt om d'eer,17.62620462375793,17.975732760772956,20027
+9,vond001jose05_01.xml,vondels_toneel,Joost Vondel,Joseph in Dothan,7.82039687184125,2.5535989785604087,18797
+10,vond001pala01_01.xml,vondels_toneel,Joost Vondel,Palamedes oft Vermoorde onnooselheyd,5.997818974918212,1.3421692811005788,23842
+11,vond001luci01_01.xml,vondels_toneel,Joost Vondel,Lucifer,9.602374405307495,9.384138623368687,22911
+12,vond001hier01_01.xml,vondels_toneel,Joost Vondel,Hierusalem verwoest,10.728402032749859,7.68796420970334,23023
+13,vond001gysb04_01.xml,vondels_toneel,Joost Vondel,Gysbreght van Aemstel,7.360418381676432,4.116023437121689,20651
+14,vond001pasc02_01.xml,vondels_toneel,Joost Vondel,Het Pascha ofte de Verlossinge Israëls uyt Egypten,5.657204016105194,5.810101421945875,19621
+15,vond001salm02_01.xml,vondels_toneel,Joost Vondel,Salmoneus,11.468184346784202,10.22722410030382,23369
+16,vond001elek01_01.xml,vondels_toneel,Joost Vondel,Elektra,16.299137104506233,11.625119846596357,16688
+17,vond001maeg04_01.xml,vondels_toneel,Joost Vondel,Maeghden,12.000212393139702,9.292199861944459,18833
+18,cost001rako01_isabella.xml,senecaans_scaligeriaans,Samuel Coster,Isabella,10.950037682315912,11.349026909606774,22557
+19,bred001gria01_01.xml,senecaans_scaligeriaans,G.A. Bredero,Griane,15.170625744516853,13.699110083385888,28542
+20,bred001luce01_01.xml,senecaans_scaligeriaans,G.A. Bredero,Lucelle,7.183497726324114,7.666791151336746,45521
+21,bred001rodd01_01.xml,senecaans_scaligeriaans,G.A. Bredero,Rodd'rick ende Alphonsus,15.285444088470298,16.7522291272629,25907
+22,cost001rako01_ithys.xml,senecaans_scaligeriaans,Samuel Coster,Ithys,14.352845030135867,13.944223107569721,19578
+23,hoof001achi01_01.xml,senecaans_scaligeriaans,P.C. Hooft,Achilles en Polyxena,8.126777732629012,6.8061763510767985,19688
+24,cost001rako01_polyxena.xml,senecaans_scaligeriaans,Samuel Coster,Polyxena,15.029095323816302,12.89404278477833,23887
+25,hoof001thes01_01.xml,senecaans_scaligeriaans,P.C. Hooft,Theseus en Ariadne,11.541811846689896,11.469221835075492,13776
+26,cost001rako01_iphigenia.xml,senecaans_scaligeriaans,Samuel Coster,Iphigenia,7.221529509559435,7.429343308395677,19248
+27,bran002vein02_01.xml,gruwel_en_spektakeltoneel,Geeraardt Brandt de jonge,De veinzende Torquatus,18.043605379667532,13.282098404477487,23942
+28,vos_002mede03_01.xml,gruwel_en_spektakeltoneel,Jan Vos,Medea,17.52071566970359,13.892896895741435,24257
+29,zeer001eers01_01.xml,gruwel_en_spektakeltoneel,Pieter Zeerijp,D'eersuchtige wraak & Thiëstes en Anticlia [Alleen D'eersuchtige wraak],13.248778123359049,13.652704285656581,24757
+30,berg038donj02_01.xml,gruwel_en_spektakeltoneel,Adriaen Bergh,Don Jeronimo maerschalk van Spanjen,20.966029723991507,18.046709129511676,3768
+31,vos_002aran03_01.xml,gruwel_en_spektakeltoneel,Jan Vos,Aran en Titus of wraek en weerwraek,16.767922235722963,11.259619279060347,24690
+32,meij001verl01_01.xml,gruwel_en_spektakeltoneel,Lodewijk Meyer,Verloofde koninksbruidt,6.145323927814082,5.496169991777384,23107
+33,asse001open01_01.xml,gruwel_en_spektakeltoneel,Thomas Asselijn,Op- en ondergang van Mas Anjello of Napelse beroerte,12.732574855218303,11.089661970674005,24347
+34,bont001bele02_01.xml,gruwel_en_spektakeltoneel,Reinier Bont,Beleg en ontset der stadt Leyden,11.707241432780275,8.838579624748023,12898
+35,kalb001muli01_01.xml,gruwel_en_spektakeltoneel,Dirk Kalbergen,Muliassus de Turk,25.89973782473981,23.039644077222533,12587
