@@ -61,10 +61,12 @@ class SentimentVisualisation():
 
                         # append lemma to speaker_list if meta data indicates start of turn
                         # start of turns can consist of multiple lemma's that together form the name of the speaker
-                        if "stage" in target_id and lemma.isalpha() == True:
-                            self.speaker_list.append(lemma.lower())
-                        elif "speaker" in target_id and lemma.isalpha() == True:
-                            self.speaker_list.append(lemma.lower())
+                        if "stage" in target_id:
+                            if lemma.isalpha() == True:
+                                self.speaker_list.append(lemma.lower())
+                        elif "speaker" in target_id:
+                            if lemma.isalpha() == True:
+                                self.speaker_list.append(lemma.lower())
                          
                         # else add target id to right turn
                         else:

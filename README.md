@@ -54,7 +54,7 @@ De hierop volgende lijst beschrijft de belangrijkste mappen en files in het proj
 
 ### Note
 
-In de HEEM-dataset is voor de werken van Coster één file ('cost001rako01_01.xml') die de annotaties van meerdere toneelstukken van Coster omvat. Met behulp van de functie split_coster() (klik [hier](https://github.com/SanneHoeken/HEEM-Data-Extractions/blob/master/help_methods/split_coster.py) voor de implementatiedetails) zijn uit deze file de annotaties van vier toneelstukken geëxtraheert en opgeslagen als losse files. Het gaat om de stukken Ithys, Iphigenia, Isabella and Polyxena; opgeslagen in de datafolder als respectievelijk 'cost001rako01_ithys.xml', 'cost001rako01_iphigenia.xml', 'cost001rako01_isabella.xml' en 'cost001rako01_polyxena.xml'. 
+In de HEEM-dataset is voor de werken van Coster één file (cost001rako01_01.xml) die de annotaties van meerdere toneelstukken van Coster omvat. Met behulp van de functie *split_coster()* (klik [hier](https://github.com/SanneHoeken/HEEM-Data-Extractions/blob/master/help_methods/split_coster.py) voor de implementatiedetails) zijn uit deze file de annotaties van vier toneelstukken geëxtraheert en opgeslagen als losse files. Het gaat om de stukken Ithys, Iphigenia, Isabella and Polyxena; opgeslagen in de datafolder als respectievelijk cost001rako01_ithys.xml, cost001rako01_iphigenia.xml, cost001rako01_isabella.xml en cost001rako01_polyxena.xml. 
 
 ## License
 This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License (http://creativecommons.org/licenses/by-sa/4.0/).
