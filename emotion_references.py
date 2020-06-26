@@ -2,7 +2,7 @@ import xml.etree.ElementTree as ET
 import pandas as pd
 import os
 
-class ExtractReferences():
+class EmotionReferences():
 
     def __init__(self):
         
@@ -139,6 +139,6 @@ class ExtractReferences():
         # initialize pandas dataframe for every list of dicts and write to csv
         for name, list_of_dics in self.all_data.items():
             df = pd.DataFrame(list_of_dics)
-            df.to_csv(f"results/per_file/{name}.csv", encoding='utf-8')
+            df.to_csv(f"results/reference_frequencies/per_file/{name}.csv", encoding='utf-8')
             mean_df = df.groupby('genre').mean()
-            mean_df.to_csv(f"results/per_genre/{name}.csv", encoding='utf-8')
+            mean_df.to_csv(f"results/reference_frequencies/per_genre/{name}.csv", encoding='utf-8')

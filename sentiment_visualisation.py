@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from help_methods.translate_speaker import translate_speaker
 
-class PlaySentiment():
+class SentimentVisualisation():
 
     def __init__(self, path, speakers):
         self.filename = path
@@ -163,5 +163,6 @@ class PlaySentiment():
 
         plt.legend()
         plt.savefig(f'results/sentiment_plots/{title}.png')
+        plt.close()
 
 

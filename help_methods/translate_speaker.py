@@ -1,4 +1,17 @@
 def translate_speaker(speaker):
+    """
+    This function translates various references to specific speakers in certain plays into a clear reference.
+    Specifically for the following plays and speakers:
+    1. 'Gysbreght van Aemstel' by Vondel
+        - Speakers: Gijsbrecht and Badeloch
+    2. 'Joanna koninging van Napels' by Lope de Vega
+        - Speakers: Joanna, Andreas and Lodewijck
+    3. 'Achilles en Polyxena' by Hooft
+        - Speakers: Achilles, Polyxena, Hector and Pryamus
+    4. 'Medea' by Vos
+        - Speakers: Medea, Jazon and Kreuza
+    """  
+    
     if speaker in ['hecvba', 'hecuba']:
         return 'Hecuba'
     elif speaker in ['polydorvs', 'polidorvs', 'polydoor']:
