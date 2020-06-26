@@ -17,8 +17,8 @@ if user_input == 1:
 
 
 elif user_input == 2:
-    print("Plotting per genre the embodiment of the emotions: love, desire, honor, vindictiveness, fear and compassion ...")
-    embodiment_analysis = EmbodiedEmotions(['love', 'desire', 'honor', 'vindictiveness', 'fear', 'compassion'])
+    print("Plotting per genre the embodiment of the emotions: love, desire, honor, vindictiveness, fear, compassion and sadness...")
+    embodiment_analysis = EmbodiedEmotions(['love', 'desire', 'honor', 'vindictiveness', 'fear', 'compassion', 'sadness'])
     embodiment_analysis.run()
     print("Results are stored in ./results/embodied_emotions")
 

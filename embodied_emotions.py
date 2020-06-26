@@ -2,6 +2,7 @@ import xml.etree.ElementTree as ET
 import matplotlib.pyplot as plt
 import numpy as np
 import os
+import csv
 
 class EmbodiedEmotions():
 
@@ -36,6 +37,9 @@ class EmbodiedEmotions():
 
                 # plot for every genre for every emotion a bodypart barplot
                 self.plot_bodypartcounts(emotion_bodypart, genre)
+
+                # save plot data in csv-file
+                self.save_csv(emotion_bodypart, genre)
 
                         
     def count_bodyparts(self, root, dic):
@@ -88,3 +92,15 @@ class EmbodiedEmotions():
             plt.title(f"""Embodiment of {emotion}\nfor 9 plays of genre: {genre}""")
             plt.savefig(f'results/embodied_emotions/{emotion}/{genre}.png')
             plt.close()
+
+
+    def save_csv(self, dic, genre):
+        
+        # saves for all specified emotions the different bodypart percentages
+        for emotion in self.list_of_emotions:
+
+            with open(f'results/embodied_emotions/{emotion}/{genre}.csv', 'w') as csv_file:  
+                writer = csv.writer(csv_file)
+                writer.writerow(['body part', 'percentage'])
+                for key, value in dic[emotion].items():
+                    writer.writerow([key, value])
