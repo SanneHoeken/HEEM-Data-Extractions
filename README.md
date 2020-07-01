@@ -17,8 +17,8 @@ De data-extractie in dit project dient de vergelijking van een paar specifieke g
 - Gruwel- en Spektakeltoneel
 
 De code in dit project voert drie verschillende analyses uit voor geselecteerde toneelstukken uit de HEEM-dataset: 
-1. Per tekst en genre wordt in een csv-bestand uitgesplitst hoe vaak welke concepttypes, emotietypes, emotieclusters, lichaamsdelen en sentimenten voorkomen in aantallen, gecorrigeerd naar het aantal versregels.
-2. Voor zes emoties wordt per genre geplot welke lichaamsdelen het sterkst tot uitdrukking komen.
+1. Per tekst en genre wordt uitgesplitst hoe vaak welke concepttypes, emotietypes, emotieclusters, lichaamsdelen en sentimenten voorkomen in aantallen, gecorrigeerd naar het aantal versregels.
+2. Voor zeven emoties wordt per genre geplot welke lichaamsdelen het sterkst tot uitdrukking komen.
 3. Voor vier stukken wordt het emotionele verloop van een selectie personages gevisualiseerd op basis van positieve en negatieve emoties.
 
 ## Aan de slag
@@ -39,7 +39,7 @@ De resultaten kunnen opnieuw gegenereerd worden door aanroepen van:
 python main.py
 ```
 
-Het programma zal je vragen welke van de drie analyses je op de dataset uit wil voeren. De resultaten worden opgeslagen in ./results.
+Het programma zal je vragen welke van de drie analyses je op de dataset uit wilt voeren. De resultaten worden opgeslagen in ./results.
 
 ### Structuur
 
@@ -50,7 +50,7 @@ De hierop volgende lijst beschrijft de belangrijkste mappen en files in het proj
 - **sentiment_visualisation.py**: bevat de code voor de visualisatie van het emotionele verloop in een toneelstuk
 - **/data**: bevat geselecteerde bestanden uit de HEEM-dataset
 - **/results**: bevat alle resultaten van dit project
-- **/help_methods**: bevat functies die de benodigd zijn bij verschillende programma's
+- **/help_methods**: bevat functies die de nodig zijn (geweest) bij verschillende programma's
 
 ### Note
 
