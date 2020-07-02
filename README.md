@@ -19,7 +19,7 @@ De data-extractie in dit project dient de vergelijking van een paar specifieke g
 De code in dit project voert drie verschillende analyses uit voor geselecteerde toneelstukken uit de HEEM-dataset: 
 1. Per tekst en genre wordt uitgesplitst hoe vaak welke concepttypes, emotietypes, emotieclusters, lichaamsdelen en sentimenten voorkomen in aantallen, gecorrigeerd naar het aantal versregels.
 2. Voor zeven emoties wordt per genre geplot welke lichaamsdelen het sterkst tot uitdrukking komen.
-3. Voor vier stukken wordt het emotionele verloop van een selectie personages gevisualiseerd op basis van positieve en negatieve emoties.
+3. Voor zes stukken wordt het emotionele verloop van een selectie personages gevisualiseerd op basis van positieve en negatieve emoties.
 
 ## Aan de slag
 
@@ -54,7 +54,7 @@ De hierop volgende lijst beschrijft de belangrijkste mappen en files in het proj
 
 ### Note
 
-In de HEEM-dataset is voor de werken van Coster één file (cost001rako01_01.xml) die de annotaties van meerdere toneelstukken van Coster omvat. Met behulp van de functie *split_coster()* (klik [hier](https://github.com/SanneHoeken/HEEM-Data-Extractions/blob/master/help_methods/split_coster.py) voor de implementatiedetails) zijn uit deze file de annotaties van vier toneelstukken geëxtraheert en opgeslagen als losse files. Het gaat om de stukken Ithys, Iphigenia, Isabella and Polyxena; opgeslagen in de datafolder als respectievelijk cost001rako01_ithys.xml, cost001rako01_iphigenia.xml, cost001rako01_isabella.xml en cost001rako01_polyxena.xml. 
+In de HEEM-dataset is voor de werken van Coster één file (cost001rako01_01.xml) die de annotaties van meerdere toneelstukken van Coster omvat. Met behulp van de functie *split_coster()* (klik [hier](https://github.com/SanneHoeken/HEEM-Data-Extractions/blob/master/help_methods/split_coster.py) voor de implementatiedetails) zijn uit deze file de annotaties van vier toneelstukken geëxtraheert en opgeslagen als losse files. Het gaat om de stukken Ithys, Iphigenia, Isabella and Polyxena; opgeslagen in [data](https://github.com/SanneHoeken/HEEM-Data-Extractions/tree/master/data/senecaans_scaligeriaans) als respectievelijk cost001rako01_ithys.xml, cost001rako01_iphigenia.xml, cost001rako01_isabella.xml en cost001rako01_polyxena.xml. 
 
 ## License
 This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License (http://creativecommons.org/licenses/by-sa/4.0/).
