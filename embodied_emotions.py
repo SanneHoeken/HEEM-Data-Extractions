@@ -7,7 +7,7 @@ import csv
 class EmbodiedEmotions():
 
     def __init__(self, list_of_emotions):
-        self.emotiontypedata = []
+        self.emotiontypedata = {}
         self.list_of_emotions = list_of_emotions
 
 
@@ -17,38 +17,37 @@ class EmbodiedEmotions():
         for genre in os.listdir('data'):
             if not genre.startswith('.'):
 
-                # initialize dic for every genre that maps bodypart counts to emotions
-                emotion_bodypart = {}
+                # initialize dic for every genre that maps bodypart counts to emotions for every file
+                self.emotiontypedata[genre] = {}
 
                 # iterate over every file
                 for filename in os.listdir(f'data/{genre}'):
                     if filename.endswith('.xml'):
                         
+                        # initialize dic for every file that maps bodypart counts to emotions
+                        self.emotiontypedata[genre][filename] = {}
+                        
                         # parse xml-file
                         tree = ET.parse(f'data/{genre}/{filename}')
                         root = tree.getroot()
 
-                        # count bodyparts for every emotion in file
-                        # store in emotion_bodypart dic
-                        self.count_bodyparts(root, emotion_bodypart)
+                        # count bodyparts for every emotion in file and store in dic
+                        self.count_bodyparts(root, genre, filename)
 
-                # transform absolute counts to percentage of all bodypart references of certain emotion
-                self.to_percentages(emotion_bodypart)
-
-                # plot for every genre for every emotion a bodypart barplot
-                self.plot_bodypartcounts(emotion_bodypart, genre)
-
-                # save plot data in csv-file
-                self.save_csv(emotion_bodypart, genre)
+        # transform absolute counts to percentage of all bodypart references of certain emotion
+        self.to_relative()
+        
+        # save plot data in csv-file
+        self.save_csv()
 
                         
-    def count_bodyparts(self, root, dic):
-
-        emo = None
+    def count_bodyparts(self, root, genre, filename):
 
         # iterate over every emotion in the file
         for emotions in root.iter('emotions'):
             for emotion in emotions.iter('emotion'):
+                
+                emo = None
 
                 # get reference
                 for externalref in emotion.iter('externalRef'):
@@ -57,50 +56,42 @@ class EmbodiedEmotions():
                     
                     # retrieve and store emotiontype of emotion
                     if ref.startswith('emotionType'):
-                        ref = ref[12:len(ref)]
-                        if not ref in dic:
-                            dic[ref] = {}
-                        emo = ref
-                    
-                    if emo is not None:
+                        emo = ref[12:len(ref)]
+                        
+                        if emo in self.list_of_emotions and not emo in self.emotiontypedata[genre][filename]:
+                            self.emotiontypedata[genre][filename][emo] = {}
 
-                        # check for bodypart references and map to right emotion in dic
-                        if reference['resource'] == 'heem:bodyParts':
-                            if not ref in dic[emo]:
-                                dic[emo][ref] = 1
+                    # check for bodypart references and map to right emotion in dic
+                    if reference['resource'] == 'heem:bodyParts':
+
+                        if emo in self.emotiontypedata[genre][filename]:
+                            if not ref in self.emotiontypedata[genre][filename][emo]:
+                                self.emotiontypedata[genre][filename][emo][ref] = 1
                             else:
-                                dic[emo][ref] += 1   
+                                self.emotiontypedata[genre][filename][emo][ref] += 1   
     
 
-    def to_percentages(self, dic):
+    def to_relative(self):
 
-        # calculate every bodypart count as percentage of all bodypart references mapped to an emotion
-        for emotion in dic:
-            total = sum(dic[emotion].values())
-            for bodypart in dic[emotion]:
-                dic[emotion][bodypart] = dic[emotion][bodypart] / total * 100
+        # calculate every bodypart count as relative count of all bodypart references mapped to an emotion
+        for genre in self.emotiontypedata:
+            for filename in self.emotiontypedata[genre]:
+                for emotion in self.emotiontypedata[genre][filename]:
+                    total = sum(self.emotiontypedata[genre][filename][emotion].values())
+                    
+                    for bodypart in self.emotiontypedata[genre][filename][emotion]:
+                        self.emotiontypedata[genre][filename][emotion][bodypart] = self.emotiontypedata[genre][filename][emotion][bodypart] / total
 
-    
-    def plot_bodypartcounts(self, dic, genre):
+
+    def save_csv(self):
         
-        # plots for all specified emotions the different bodypart percentages
+        # saves for all specified emotions the different bodypart relative counts mapped to the right genre and file
         for emotion in self.list_of_emotions:
-            plt.figure()
-            plt.bar(dic[emotion].keys(), dic[emotion].values())
-            plt.xlabel('body parts')
-            plt.ylabel('percentage of total bodyparts occurences')
-            plt.title(f"""Embodiment of {emotion}\nfor 9 plays of genre: {genre}""")
-            plt.savefig(f'results/embodied_emotions/{emotion}/{genre}.png')
-            plt.close()
-
-
-    def save_csv(self, dic, genre):
-        
-        # saves for all specified emotions the different bodypart percentages
-        for emotion in self.list_of_emotions:
-
-            with open(f'results/embodied_emotions/{emotion}/{genre}.csv', 'w') as csv_file:  
+            with open(f'results/embodied_emotions/{emotion}.csv', 'w') as csv_file:  
                 writer = csv.writer(csv_file)
-                writer.writerow(['body part', 'percentage'])
-                for key, value in dic[emotion].items():
-                    writer.writerow([key, value])
+                writer.writerow(['genre', 'filename', 'body part', 'relative count'])                
+                for genre in self.emotiontypedata:
+                    for filename in self.emotiontypedata[genre]:
+                        if emotion in self.emotiontypedata[genre][filename]:
+                            for key, value in self.emotiontypedata[genre][filename][emotion].items():
+                                writer.writerow([genre, filename, key, value])

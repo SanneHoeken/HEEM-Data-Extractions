@@ -5,7 +5,7 @@ from embodied_emotions import EmbodiedEmotions
 
 user_input = int(input("""What action do you want to perform on the dataset?
 Type '1' for Extracting of emotion references per file and genre
-Type '2' for Plotting embodiment of certain emotion(s) per genre 
+Type '2' for Extracting embodiment of certain emotion(s) for every file
 Type '3' for Plotting sentiment visualisation of certain plays for certain speakers\n"""))
 
 if user_input == 1:
@@ -17,7 +17,7 @@ if user_input == 1:
 
 
 elif user_input == 2:
-    print("Plotting per genre the embodiment of the emotions: love, desire, honor, vindictiveness, fear, compassion and sadness...")
+    print("Extracting for every file the embodiment of the emotions: love, desire, honor, vindictiveness, fear, compassion and sadness...")
     embodiment_analysis = EmbodiedEmotions(['love', 'desire', 'honor', 'vindictiveness', 'fear', 'compassion', 'sadness'])
     embodiment_analysis.run()
     print("Results are stored in ./results/embodied_emotions")
