@@ -1,6 +1,8 @@
+[![DOI](https://zenodo.org/badge/274731738.svg)](https://zenodo.org/badge/latestdoi/274731738)
+
 # HEEM-Data-Extractions
 
-Dit project valt onder het promotieonderzoek van Tim Vergeer.
+Dit project valt onder het promotieonderzoek van Tim Vergeer, getiteld "The Theatre of Emotions: The Success of Spanish Drama in the Low Countries (1617-1672)".
 Juni 2020.
 
 ### Auteurs
@@ -10,7 +12,7 @@ Juni 2020.
 ### Project
 
 Het promotieonderzoek waar dit project onder valt is een onderzoek naar emoties in zeventiende-eeuwse toneelstukken vertaald uit het Spaans. In dit project wordt data geëxtraheert uit een reeds bestaande dataset: [het Historic Embodied Emotions Model (HEEM)](https://github.com/NLeSC/HEEM-dataset). Deze dataset is ontwikkeld aan de VU door het emotie-expertisecentrum ACCESS (o.b.v. Inger Leemans). De ontwikkelaars hebben via machine learning emoties gelabeld voor 278 zeventiende-eeuwse en achttiende-eeuwse toneelstukken, waarvan 9 van Spaanse origine zijn. 
-De data-extractie in dit project dient de vergelijking van een paar specifieke genres van toneel: 
+De data-extractie in dit project dient ter vergelijking van een paar specifieke toneelgenres gangbaar in de zeventiende-eeuwse Nederlanden: 
 - Spaans drama
 - Senecaans-Scaligeriaans drama
 - Vondels toneel
