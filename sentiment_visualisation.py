@@ -159,6 +159,13 @@ class SentimentVisualisation():
             xdata = [turn for turn, value in tuplelist]
             ydata = [value for turn, value in tuplelist]
             plt.plot(xdata, ydata, label=speaker)
+
+            # plot trendline 
+            zdata = np.polyfit(xdata, ydata, 1)
+            trend = np.poly1d(zdata)
+            plt.plot(xdata,trend(xdata), label=f'{speaker} trend', linestyle='--')
+
+            # set axis labels and plot title
             plt.xlabel('speaker turns')
             plt.ylabel('positivity/negativity')
             plt.title(title)

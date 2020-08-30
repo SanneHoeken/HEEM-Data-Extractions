@@ -33,9 +33,6 @@ class EmbodiedEmotions():
 
                         # count bodyparts for every emotion in file and store in dic
                         self.count_bodyparts(root, genre, filename)
-
-        # transform absolute counts to percentage of all bodypart references of certain emotion
-        self.to_relative()
         
         # save plot data in csv-file
         self.save_csv()
@@ -68,28 +65,16 @@ class EmbodiedEmotions():
                             if not ref in self.emotiontypedata[genre][filename][emo]:
                                 self.emotiontypedata[genre][filename][emo][ref] = 1
                             else:
-                                self.emotiontypedata[genre][filename][emo][ref] += 1   
-    
-
-    def to_relative(self):
-
-        # calculate every bodypart count as relative count of all bodypart references mapped to an emotion
-        for genre in self.emotiontypedata:
-            for filename in self.emotiontypedata[genre]:
-                for emotion in self.emotiontypedata[genre][filename]:
-                    total = sum(self.emotiontypedata[genre][filename][emotion].values())
-                    
-                    for bodypart in self.emotiontypedata[genre][filename][emotion]:
-                        self.emotiontypedata[genre][filename][emotion][bodypart] = self.emotiontypedata[genre][filename][emotion][bodypart] / total
+                                self.emotiontypedata[genre][filename][emo][ref] += 1
 
 
     def save_csv(self):
         
-        # saves for all specified emotions the different bodypart relative counts mapped to the right genre and file
+        # saves for all specified emotions the different bodypart counts mapped to the right genre and file
         for emotion in self.list_of_emotions:
             with open(f'results/embodied_emotions/{emotion}.csv', 'w') as csv_file:  
                 writer = csv.writer(csv_file)
-                writer.writerow(['genre', 'filename', 'body part', 'relative count'])                
+                writer.writerow(['genre', 'filename', 'body part', 'count'])                
                 for genre in self.emotiontypedata:
                     for filename in self.emotiontypedata[genre]:
                         if emotion in self.emotiontypedata[genre][filename]:
