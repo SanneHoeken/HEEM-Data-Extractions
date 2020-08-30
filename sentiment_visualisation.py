@@ -1,6 +1,7 @@
 import xml.etree.ElementTree as ET
 import matplotlib.pyplot as plt
 import numpy as np
+import csv
 from help_methods.translate_speaker import translate_speaker
 
 class SentimentVisualisation():
@@ -10,7 +11,8 @@ class SentimentVisualisation():
         self.speakers = speakers
         self.play = {}
         self.speaker_list = []
-    
+        self.text = {}
+        self.title = None
     
     def run(self):
         
@@ -20,7 +22,7 @@ class SentimentVisualisation():
 
         # retrieve and store title of file
         for fileDesc in root.iter('fileDesc'):
-            title = fileDesc.get('title')
+            self.title = fileDesc.get('title')
 
         # load dictionary of dictionaries
         # for every speaker, for every turn, for every term id, a sentiment value
@@ -34,7 +36,13 @@ class SentimentVisualisation():
         self.set_averages()
 
         # plot sentiment against turns for every speaker
-        self.plot_sentiment(title)
+        self.plot_sentiment()
+
+        # clean text dic and store in csv
+        for turn in self.text:
+            self.text[turn] = ' '.join(self.text[turn])
+        
+        self.to_csv()
 
 
     def load_play(self, root):
@@ -88,6 +96,9 @@ class SentimentVisualisation():
                             if not turn in self.play[speaker]:
                                 turn += 1
                                 self.play[speaker][turn] = {}
+
+                                # append turn to text dic
+                                self.text[turn] = []
                                 
                                 # set begin and end of turn seperate in dic and set values to 0
                                 self.play[speaker][turn+0.9] = 0
@@ -95,6 +106,9 @@ class SentimentVisualisation():
                             
                             # add term id to turn dic and set sentiment value to zero
                             self.play[speaker][turn][term_id] = 0
+                            
+                            # add lemma to list of lemmas mapped to the current turn
+                            self.text[turn].append(lemma)
     
 
     def load_sentiment(self, root):
@@ -149,7 +163,7 @@ class SentimentVisualisation():
                     self.play[speaker][turn] = average
 
 
-    def plot_sentiment(self, title):
+    def plot_sentiment(self):
 
         plt.figure()
 
@@ -168,10 +182,20 @@ class SentimentVisualisation():
             # set axis labels and plot title
             plt.xlabel('speaker turns')
             plt.ylabel('positivity/negativity')
-            plt.title(title)
+            plt.title(self.title)
 
         plt.legend()
-        plt.savefig(f'results/sentiment_plots/{title}.png')
+        plt.savefig(f'results/sentiment_plots/{self.title}.png')
         plt.close()
+
+    
+    def to_csv(self):
+
+        # save text mapped to right turn number in csv-file
+        with open(f'results/sentiment_plots/{self.title}_text.csv', 'w') as csv_file:  
+            writer = csv.writer(csv_file)
+            writer.writerow(['turn', 'text'])                
+            for turn, text in self.text.items():
+                writer.writerow([turn, text])
 
 
