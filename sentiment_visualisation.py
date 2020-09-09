@@ -38,6 +38,9 @@ class SentimentVisualisation():
         # plot sentiment against turns for every speaker
         self.plot_sentiment()
 
+        # plot trendline 
+        self.plot_trend()
+
         # clean text dic and store in csv
         for turn in self.text:
             self.text[turn] = ' '.join(self.text[turn])
@@ -174,11 +177,6 @@ class SentimentVisualisation():
             ydata = [value for turn, value in tuplelist]
             plt.plot(xdata, ydata, label=speaker)
 
-            # plot trendline 
-            zdata = np.polyfit(xdata, ydata, 1)
-            trend = np.poly1d(zdata)
-            plt.plot(xdata,trend(xdata), label=f'{speaker} trend', linestyle='--')
-
             # set axis labels and plot title
             plt.xlabel('speaker turns')
             plt.ylabel('positivity/negativity')
@@ -186,6 +184,31 @@ class SentimentVisualisation():
 
         plt.legend()
         plt.savefig(f'results/sentiment_plots/{self.title}.png')
+        plt.close()
+
+
+    def plot_trend(self):
+
+        plt.figure()
+
+        # plot for every speaker the sentiment values against the turns
+        for speaker in self.speakers:
+            tuplelist = sorted([(turn, value) for turn, value in self.play[speaker].items()])
+            xdata = [turn for turn, value in tuplelist]
+            ydata = [value for turn, value in tuplelist]
+
+            # plot trendline 
+            zdata = np.polyfit(xdata, ydata, 1)
+            trend = np.poly1d(zdata)
+            plt.plot(xdata,trend(xdata), label=f'{speaker}')
+
+            # set axis labels and plot title
+            plt.xlabel('speaker turns')
+            plt.ylabel('positivity/negativity')
+            plt.title(self.title)
+
+        plt.legend()
+        plt.savefig(f'results/sentiment_plots/{self.title}_trend.png')
         plt.close()
 
     
