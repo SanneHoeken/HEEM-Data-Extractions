@@ -42,3 +42,4 @@ def identify_speakers(filename):
                             tmp_speaker = []
     
     return speakers
+    

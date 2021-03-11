@@ -24,13 +24,13 @@ elif user_input == 2:
 
 
 elif user_input == 3:
-    data = {'data/vondels_toneel/vond001luci01_01.xml': ['Belzebab', 'Lucifer', 'Gabriël', 'Michaël'], 'data/spaans/lope001bekl02_01.xml': [
+    data = {'data/vondels_toneel/vond001luci01_01.xml': ['Belzebab', 'Lucifer', 'Gabriël', 'Rafaël', 'Michaël'], 'data/spaans/lope001bekl02_01.xml': [
         'Rozaura', 'Dionysia', 'Henrijk', 'Octavio'], 'data/senecaans_scaligeriaans/hoof001achi01_01.xml': ['Achilles', 'Polyxena', 
         'Hector', 'Pryamus'], 'data/gruwel_en_spektakeltoneel/vos_002mede03_01.xml': ['Medea', 'Jazon', 'Kreuza'], 'data/vondels_toneel/vond001gysb04_01.xml': 
         ['Gijsbrecht', 'Badeloch'], 'data/spaans/lope001joan01_01.xml': ['Joanna', 'Andreas', 'Lodewijck']}
     print("""Plotting sentiment visualisation for:
     1. 'Lucifer' by Vondel
-        - Speakers: Belzebab, Lucifer, Gabriël and Michaël
+        - Speakers: Belzebab, Lucifer, Gabriël, Rafaël and Michaël
     2. 'De beklaaghelycke dwangh' by Lope de Vega
         - Speakers: Rozaura, Dionysia, Henrijk and Octavio
     3. 'Achilles en Polyxena' by Hooft

@@ -3,7 +3,7 @@ def translate_speaker(speaker):
     This function translates various references to specific speakers in certain plays into a clear reference.
     Specifically for the following plays and speakers:
     1. 'Lucifer' by Vondel
-        - Speakers: Belzebab, Lucifer, Gabriël and Michaël
+        - Speakers: Rafaël, Belzebab, Lucifer, Gabriël and Michaël
     2. 'De beklaaghelycke dwangh' by Lope de Vega
         - Speakers: Rozaura, Dionysia, Henrijk and Octavio
     3. 'Achilles en Polyxena' by Hooft
@@ -33,6 +33,8 @@ def translate_speaker(speaker):
         return 'Gabriël'
     elif speaker in ['mich', 'michaël']:
         return 'Michaël'
+    elif speaker in ['raf', 'rafaël']:
+        return 'Rafaël'
 
     elif speaker in ['pryamus', 'priamus']:
         return 'Pryamus'
